@@ -6,7 +6,9 @@ body {
     margin:0;
     padding:0;
     font-size:13px;
+   
     #main-body {
+        
         width:80%;
         left:10%;
         position:absolute;
@@ -20,12 +22,15 @@ body {
             }
         }
         #content{
+           
             #static-content{
+                width:69%;
+                float:left;
             }
             #dynamic-content{
                 float:right;
                 width:335px;
-                .sign-in-box{
+                .sign-in-box {
                     background: none repeat scroll 0 0 #F5F5F5;
                     border: 1px solid #E5E5E5;
                     margin: 12px 0 0;
@@ -39,6 +44,13 @@ body {
                     }
                 }
             }
+        }
+        .footer-separator{
+            color:#E5E5E5;
+        }
+        #footer {
+            text-align:center;
+            a{ margin-right:5px;}
         }
     }
 }

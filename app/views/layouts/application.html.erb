@@ -7,10 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
-
-<%= yield %>
-
+  <div id="main-body">
+    <div id="header">
+     <%= render 'layouts/header' %>
+    </div>
+    <div style="clear:both"></div>
+    <div id="content">
+      <div id="static-content">
+        <%= render 'layouts/site_description' %>
+      </div>
+      <div id="dynamic-content">
+        <%= yield %>
+      </div>
+    </div>
+    <div style="clear:both"></div>
+    <hr class="footer-separator" />
+    <div id="footer"
+      <%= render 'layouts/footer' %>
+    </div>
+  </div>
 </body>
 </html>

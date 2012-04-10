@@ -1,5 +1,9 @@
 MFSocial::Application.routes.draw do
 
+  namespace :account do 
+    resources :albums
+  end
+
   get "home/index"
 
   get "home/about_us"

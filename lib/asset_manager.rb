@@ -77,15 +77,12 @@ class AssetManager
     :date               => "date.js",
     :ajax_submit        => "ajax.submit.js",   
     :date_format        => "date_format.js",   
-    :form               => "jquery.form.js",   
-    :jquery_datepicker  => "jquery.ui.datepicker.js",
+    :form               => "jquery.form.js",  
     :validate           => "jquery.validate.js",
-    :validate_additional => "jquery.validate.additional-methods.js",
     :jquery_form        => "jquery_form.js",
     :fancybox           => "fancybox/jquery.fancybox-1.3.4.js",
     :fancybox_wheel     => "fancybox/jquery.mousewheel-3.0.4.pack.js",   
-    :data_table         => "jquery.dataTables.js",
-    :carousel           => "jquery_jcarousel_min.js"
+   
   }
 
 end

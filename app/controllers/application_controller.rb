@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  #before_filter  :global_assets
   protect_from_forgery
 
   def global_assets
@@ -6,21 +7,10 @@ class ApplicationController < ActionController::Base
     AssetManager.include_contrib_library [:fancybox, :jquery_tooltip]
 
     AssetManager.include_css [
-      :application,
-        :timePicker,
-        :ccvalidate,
-        :fullcalendar,
-        :commerce,
-        :home,
-        :search,
-        :jquery_ui,
-        :reviews,
-        :scaffolds,
-        :providers,
-        :account,
-        "960_5_15_15.css",
+      :application,        
+        :jquery_ui,       
+        :account,        
         "jquery.tooltip.css",
-        "ui.daterangepicker.css",
         "jquery.fancybox-1.3.4.css",
         "jquery.rating.css",
     ]

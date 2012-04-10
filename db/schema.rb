@@ -31,7 +31,11 @@ ActiveRecord::Schema.define(:version => 20120410054335) do
     t.datetime "created_at",                                          :null => false
     t.datetime "updated_at",                                          :null => false
     t.date     "date_of_birth"
+<<<<<<< HEAD
     t.string   "gender",                 :limit => 6
+=======
+    t.string   "gender"
+>>>>>>> debadatta
     t.string   "first_name"
     t.string   "last_name"
   end

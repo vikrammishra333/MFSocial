@@ -1,0 +1,148 @@
+@mixin license {
+  width: 325px;
+  height: 130px;
+  margin-bottom: 20px;
+
+  &.odd,&.even {
+    background-color: transparent;
+  }
+
+
+  .shade .shade-content {
+    padding: 5px !important;
+
+    .shade-content-inner {
+    }
+  }
+
+  .license-inner {
+    background: url(img-license-lines.png) no-repeat 0px 14px;
+    z-index: 110;
+    height: 100px;
+    line-height: 1.65em;
+
+    .close {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+
+    .status-emblem {
+      position: absolute;
+      top: 25px;
+      right: 5px;
+    }
+
+    .text {
+      width: 230px;
+      position: relative;
+
+      .title {
+        color: $green_text;
+      }
+    }
+  }
+}
+
+@mixin graphical_calendar {
+  .ui-datepicker-title {
+    color: $brown_text;
+  }
+
+  .ui-state-default, .ui-widget-content .ui-state-default {
+    border: none;
+    background: none;
+    font-weight: normal;
+  /*color: #B0ACA1;*/
+    color: #333333;
+    outline: none;
+  }
+
+  .ui-datepicker {
+    background: url("img-calendar-6-rows-no-letters.png") no-repeat scroll 0 10px transparent;
+    border: medium none;
+    height: 330px;
+    width: 345px;
+
+    .ui-datepicker-prev {
+      left: 75px;
+    }
+    .ui-datepicker-next {
+      right: 75px;
+    }
+    table {
+      width: 300px;
+      font-size: .9em;
+      border-collapse: collapse;
+      margin: 13px 0px 0px 20px;
+
+      th {
+        text-align: center;
+        padding: 6px 0 0px 0;
+      }
+
+      td {
+        padding: 0;
+        width: 43px;
+        height: 40px;
+
+        span, a {
+          display: block;
+          padding-top: 11px;
+          text-align: center;
+        }
+
+        &.with-appointment {
+          background: url(img-blue-square-P36-faded.jpg) no-repeat;
+        }
+
+        &.with-availability {
+          background: url(img-green-square-P27.jpg) no-repeat;
+        }
+
+        &.no-availability {
+          background: url(img-yellow-square-P27.jpg) no-repeat;
+        }
+      }
+    }
+  }
+
+  &.single {
+    .ui-datepicker-calendar {
+      td.ui-datepicker-current-day {
+        @include calendar-highlight;
+      }
+    }
+
+    .ui-datepicker-calendar, .ui-datepicker {
+
+      &.booked, &.booked span {
+        background: no-repeat scroll 0 0 transparent;
+        border: medium none;
+        color: #FFFFFF;
+      }
+
+      &.booked, &.booked span {
+        background-image: url("img-green-square-P27.jpg");
+      }
+      &.pending, &.pending span {
+        background-image: url("img-yellow-square-P27.jpg");
+        color: #ffffff;
+      }
+      &.mixed, &.mixed span {
+        background-image: url("img-yellow-green-square-P27.jpg");
+      }
+      &.available, &.available span {
+        background-image: url("img-blue-square-P36-faded.jpg");
+      }
+    }
+  }
+
+  &.multi {
+    .ui-datepicker-calendar {
+      td.ui-state-highlight {
+        @include calendar-highlight;
+      }
+    }
+  }
+}

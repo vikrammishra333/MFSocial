@@ -1,19 +1,24 @@
 <h2>Not Registered? Sign up here:</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+   <%= devise_error_messages! %>
+  <div><%= f.label :first_name, "First Name" %><br />
+  <%= f.text_field :first_name, :size => "28" %></div>
+
+  <div><%= f.label :last_name, "Last Name" %><br />
+  <%= f.text_field :last_name, :size => "28" %></div>
 
   <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <%= f.email_field :email, :size => "28" %></div>
 
   <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <%= f.password_field :password, :size => "28" %></div>
 
   <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <%= f.password_field :password_confirmation, :size => "28" %></div>
 
   <div><%= f.label :gender %><br />
-  <%= f.text_field :gender %></div>
+  <%= f.select(:gender, [['Male', 'male'], ['Female', 'female']], :prompt => true) %></div>
 
   <div><%= f.label :date_of_birth, "Date Of Birth" %><br />
   <%= f.date_select :date_of_birth, :prompt => true %></div>

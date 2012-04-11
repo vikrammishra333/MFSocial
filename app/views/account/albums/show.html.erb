@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @account_album.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @account_album.description %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @account_album.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_account_album_path(@account_album) %> |
+<%= link_to 'Back', account_albums_path %>

@@ -1,0 +1,27 @@
+<h1>Listing account_albums</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @account_albums.each do |account_album| %>
+  <tr>
+    <td><%= account_album.title %></td>
+    <td><%= account_album.description %></td>
+    <td><%= account_album.user_id %></td>
+    <td><%= link_to 'Show', account_album %></td>
+    <td><%= link_to 'Edit', edit_account_album_path(account_album) %></td>
+    <td><%= link_to 'Destroy', account_album, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Album', new_account_album_path %>

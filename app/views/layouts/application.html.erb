@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MFSocial</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+<title><%=  %></title>
+  <link rel="icon" type="image/png" href="/favicon.ico" />
+  <%= render 'layouts/stylesheets' %>
+  <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
   <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <%= render :partial => 'layouts/javascript' %>
 </head>
 <body>
   <div id="main-body">

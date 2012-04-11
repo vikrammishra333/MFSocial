@@ -23,6 +23,7 @@ end
 gem 'jquery-rails'
 gem 'devise'
 gem 'acl9'
+gem 'passenger'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

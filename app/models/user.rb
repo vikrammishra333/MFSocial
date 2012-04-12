@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
 
   def recent_posts
-    @posts = self.add_posts.where("posts.created_at < ?", self.current_sign_in_at )
+    @posts = self.add_posts.where("posts.created_at > ?", self.last_sign_in_at )
   end
 
 end

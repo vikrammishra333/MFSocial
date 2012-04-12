@@ -7,24 +7,25 @@ body {
     line-height: 1.28;
     text-align: left;
     #mainContainer {
+        height:100%;
+        #leftColContainer{
+            height:100%;
+            #leftCol{
+                min-height:600px;
+                display:block;
+                float: left;
+                padding: 20px 0 0 2px;
+                width: 20%;
+                word-wrap: break-word;
+            }
+        }
         #contentCol {
             border-left: 1px solid #CCCCCC;
+            margin-left: 21%;
             min-height:600px;
             padding-top:5px;
             border-right: 1px solid #CCCCCC;
             border-bottom: 1px solid #CCCCCC;
-
-            #leftColContainer{
-                #leftCol{
-                    min-height:600px;
-                    display:block;
-                    float: left;
-                    padding: 20px 0 0 2px;
-                    width: 20%;
-                    word-wrap: break-word;
-                    border-right: 1px solid #CCCCCC;
-                }
-            }
             #rightCol{
                 border-left: 1px solid #CCCCCC;
                 float: right;
@@ -111,5 +112,12 @@ body {
         a{
             font-weight:normal;
         }
+    }
+}
+
+.wrap{
+    border: 0 none;
+    padding: 5px !important;
+    .innerWrap{
     }
 }

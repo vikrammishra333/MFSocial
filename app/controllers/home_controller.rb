@@ -5,9 +5,10 @@ class HomeController < ApplicationController
   
   def index
     @posts = current_user.recent_posts
-   
+    @post = Post.new
     respond_to do |format|
       format.html {  render :layout => 'public_profile' }#index.html.erb
+      format.json { render json: @posts}
       format.xml
     end
   end

@@ -1,5 +1,11 @@
 MFSocial::Application.routes.draw do
 
+  resources :likes
+
+  resources :comments
+
+  resources :posts
+
   namespace :account do 
     resources :albums
   end

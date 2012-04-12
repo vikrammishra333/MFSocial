@@ -1,5 +1,7 @@
 <div id="mainContainer">
-  <div id="leftColContainer">
+  
+  <div id="contentCol">
+    <div id="leftColContainer">
     <div id="leftCol">
       <div id="pagelet_welcome_box">
         <div>
@@ -16,11 +18,13 @@
       </div>
     </div>
   </div>
-  <div id="contentCol">
     <div id="rightCol">
       <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
     </div>
     <div id="contentArea">
+      <h2>Recent Activities:</h2>
+      
+        <%= render "post" %>
       
     </div>
   </div>

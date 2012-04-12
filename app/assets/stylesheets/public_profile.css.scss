@@ -7,20 +7,21 @@ body {
     line-height: 1.28;
     text-align: left;
     #mainContainer {
-
+        height:100%;
         #leftColContainer{
+            height:100%;
             #leftCol{
                 min-height:600px;
                 display:block;
                 float: left;
                 padding: 20px 0 0 2px;
-                width: 200px;
+                width: 20%;
                 word-wrap: break-word;
             }
         }
         #contentCol {
             border-left: 1px solid #CCCCCC;
-            margin-left: 202px;
+            margin-left: 21%;
             min-height:600px;
             padding-top:5px;
             border-right: 1px solid #CCCCCC;
@@ -31,13 +32,13 @@ body {
                 padding-right: 0;
                 padding-top:40px;
                 min-height:600px;
-                width: 244px;
+                width: 20%;
                 word-wrap: break-word;
             }
             #contentArea {
                 padding-left: 18px;
                 padding-right: 25px;
-                width: 511px;
+                width: 60%;
                 word-wrap: break-word;
             }
         }
@@ -52,16 +53,20 @@ body {
 
 .image_name{
     float:left;
-    height:40px;
+    min-height:50px;
 }
 .name_link
 {
     vertical-align:middle;
     margin-left:10px;
     margin-top:10px;
-    font-weight:bold;
+    
     a{
         text-decoration:none;
+        font-weight:bold;
+    }
+    a:visited{
+        color:blue;
     }
 }
 .profile_image
@@ -77,4 +82,42 @@ body {
     color:red;
     text-align:center;
     cursor:pointer;
+}
+.post_comment_child {
+    width:600px;
+    min-height:60px;
+    margin-bottom:10px;
+    margin-top:10px;
+}
+.post_comment{
+    display:table-cell;
+    border-bottom:1px solid #CCCCCC;
+   float:left;
+}
+
+.name_link_post {
+    vertical-align:middle;
+    margin-left:10px;
+
+    a{
+        text-decoration:none;
+        font-weight:bold;
+        
+    }
+    a:visited{
+        color:blue;
+    }
+     span{
+        margin-right:10px;
+        a{
+            font-weight:normal;
+        }
+    }
+}
+
+.wrap{
+    border: 0 none;
+    padding: 5px !important;
+    .innerWrap{
+    }
 }

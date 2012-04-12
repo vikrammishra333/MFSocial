@@ -4,7 +4,13 @@ class HomeController < ApplicationController
   before_filter :load_js
   
   def index
-    render :layout => 'public_profile'
+    @posts = current_user.recent_posts
+    @post = Post.new
+    respond_to do |format|
+      format.html {  render :layout => 'public_profile' }#index.html.erb
+      format.json { render json: @posts}
+      format.xml
+    end
   end
 
   def about_us

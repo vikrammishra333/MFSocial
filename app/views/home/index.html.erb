@@ -21,6 +21,11 @@
       <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
     </div>
     <div id="contentArea">
+      <%= render "status_space" %>
+      <h2>Recent Activities:</h2>
+      <div id="status_div">
+       <%= render "posts" %>
+      </div>
       
     </div>
   </div>

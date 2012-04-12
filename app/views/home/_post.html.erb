@@ -1,0 +1,26 @@
+
+<div class="post_comment">
+  <div class="post_comment_child">
+    <div class="image_name">
+      <%= link_to image_tag("profilePhoto/male.jpeg", :class => "profile_image", :alt => "User's image", :size => "50x50"), root_url, :id => "profile_image" %>
+    </div>
+    <div class="image_name">
+      <div class="name_link_post">
+        <div>
+          <%= link_to "#{current_user.first_name} #{current_user.last_name}", root_url %> has updated his status.
+        </div>
+        <div>
+          <%= post.content %>
+        </div>
+        <div>
+          <span><%= link_to "like", root_url, :remote => true %></span>
+          <span><%= link_to "unlike", root_url, :remote => true %></span>
+          <span><%= link_to "comment", root_url, :remote => true %></span>
+          <span><%= link_to "share", root_url, :remote => true %></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

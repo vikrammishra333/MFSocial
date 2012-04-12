@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def global_assets
 
-    AssetManager.include_contrib_library [:fancybox, :jquery_tooltip]
+    AssetManager.include_contrib_library [:fancybox, :jquery_tooltip, :autogrow]
 
     AssetManager.include_css [
       :application,        

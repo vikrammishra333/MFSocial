@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120411053312) do
+ActiveRecord::Schema.define(:version => 20120412130543) do
 
   create_table "account_albums", :force => true do |t|
     t.string   "title"
@@ -44,6 +44,25 @@ ActiveRecord::Schema.define(:version => 20120411053312) do
     t.integer  "to_user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "user_connection_requests", :force => true do |t|
+    t.integer  "originating_user_id"
+    t.integer  "requested_user_id"
+    t.boolean  "accepted"
+    t.string   "notes"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "user_connections", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "connected_user_id"
+    t.string   "relationship"
+    t.string   "status"
+    t.text     "notes"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "users", :force => true do |t|

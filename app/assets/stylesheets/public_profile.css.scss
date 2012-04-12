@@ -20,26 +20,55 @@ body {
             }
         }
         #contentCol {
-            border-left: 1px solid #CCCCCC;
+            border-left: 1px solid #9AAFCA;
             margin-left: 21%;
             min-height:600px;
             padding-top:5px;
-            border-right: 1px solid #CCCCCC;
-            border-bottom: 1px solid #CCCCCC;
+            border-right: 1px solid #9AAFCA;
+            height: 600px;
+            min-width: 853px;
+            display: table;
             #rightCol{
-                border-left: 1px solid #CCCCCC;
+                border-left: 1px solid #9AAFCA;
                 float: right;
                 padding-right: 0;
                 padding-top:40px;
                 min-height:600px;
                 width: 20%;
                 word-wrap: break-word;
+                height: 95%;
+                display: table;
             }
             #contentArea {
                 padding-left: 18px;
                 padding-right: 25px;
                 width: 60%;
                 word-wrap: break-word;
+
+               .wrap {
+                    border: 0 none;
+                    padding: 5px !important;
+                    .message-box {
+                        border: 1px solid #9AAFCA;
+                        padding: 4px;
+                        .wall_post {
+                            border: 0;
+                            overflow:hidden;
+                            height:auto;
+                            width:485px;
+                        }
+                    }
+                    .message-box-action {
+                        background-color: #9AAFCA;
+                        border: 1px solid #9AAFCA;
+                        input[type="submit"] {
+                            height: 28px;
+                            background-color: #9AAFCA;
+                            border: 1px solid #CCC;
+                        }
+                    }
+                }
+                
             }
         }
     }
@@ -63,7 +92,7 @@ body {
     
     a{
         text-decoration:none;
-        font-weight:bold;
+        font-weight:normal;
     }
     a:visited{
         color:blue;
@@ -91,17 +120,18 @@ body {
 }
 .post_comment{
     display:table-cell;
-    border-bottom:1px solid #CCCCCC;
+    border-bottom:1px solid #9AAFCA;
    float:left;
 }
 
 .name_link_post {
     vertical-align:middle;
     margin-left:10px;
-
+    float: left;
+    width: 537px;
     a{
         text-decoration:none;
-        font-weight:bold;
+        font-weight:normal;
         
     }
     a:visited{
@@ -115,9 +145,3 @@ body {
     }
 }
 
-.wrap{
-    border: 0 none;
-    padding: 5px !important;
-    .innerWrap{
-    }
-}

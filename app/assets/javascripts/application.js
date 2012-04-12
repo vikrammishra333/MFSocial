@@ -12,3 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+  $(document).ready(function(){
+    $("#post_content").autogrow();
+
+  });

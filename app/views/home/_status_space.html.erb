@@ -1,12 +1,17 @@
 <div class="wrap">
   <div class="innerWrap">
     <%= form_for(@post, :remote => true) do |f| %>
+    <%= f.hidden_field :by_user_id, :value => current_user.id %>
+    <%= f.hidden_field :to_user_id, :value => current_user.id  %>
       <div class="field">
-        <%= f.text_area :content, :class => "wall_post", :rows => "1", :cols => "50", :placeholder => "what's on your mind?" %>
-        <%= f.hidden_field :by_user_id, :value => current_user.id %>
-        <%= f.hidden_field :to_user_id, :value => current_user.id  %>
-        <%= f.submit %>
+        <div class="message-box">
+          <%= f.text_area :content, :class => "wall_post", :rows => "4", :cols => "50", :placeholder => "what's on your mind?" %>
+        </div>
+        <div class="message-box-action">
+          <%= f.submit %>
+        </div>
       </div>
     <% end %>
   </div>
 </div>
+

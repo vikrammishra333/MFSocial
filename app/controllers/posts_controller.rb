@@ -44,9 +44,10 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        @posts = Post.all
+        
+        #logger.debug @posts
         #format.html { redirect_to root_url, notice: 'Post was successfully created.' }
-        format.js{@posts}
+        format.js{ @posts = Post.all }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }

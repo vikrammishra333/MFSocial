@@ -22,4 +22,25 @@ class User < ActiveRecord::Base
     @posts = self.add_posts.where("posts.created_at > ?", self.last_sign_in_at ).order('created_at DESC')
   end
 
+  # Calculates a user's age based on their date of birth
+  def years_old
+    return (self.date_of_birth.nil?) ? 'N/A' : ((Time.current - self.date_of_birth) / 1.year).floor
+  end
+
+  # The user's full name (first + last)
+  def full_name
+    return sprintf"%s %s", first_name, last_name
+  end
+
+  def gender_label
+    case gender
+      when 'M'
+        return 'Male'
+      when 'F'
+        return 'Female'
+      else
+        return 'Unknown'
+    end
+  end
+
 end

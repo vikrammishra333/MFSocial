@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
@@ -41,7 +41,9 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
-
+    @comment = Comment.new
+    @post.created_at = Time.now.to_formatted_s(:mysql_date_time_format)
+    @post.updated_at = Time.now.to_formatted_s(:mysql_date_time_format)
     respond_to do |format|
       if @post.save
         @posts = current_user.recent_posts

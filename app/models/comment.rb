@@ -5,4 +5,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
 
+  def timeago_format
+    created_at.to_formatted_s(:mysql_date_time_format)
+  end
 end

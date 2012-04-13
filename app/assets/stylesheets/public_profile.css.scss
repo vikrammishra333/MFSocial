@@ -2,7 +2,7 @@
 body {
     color: #333333;
     direction: ltr;
-    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-family: lucida grande,tahoma,verdana,arial,sans-serif;
     font-size: 11px;
     line-height: 1.28;
     text-align: left;
@@ -29,7 +29,7 @@ body {
             min-width: 853px;
             display: table;
             #rightCol{
-                border-left: 1px solid #9AAFCA;
+                
                 float: right;
                 padding-right: 0;
                 padding-top:40px;
@@ -105,36 +105,122 @@ body {
     
     a{
         text-decoration:none;
-        font-weight:normal;
+        font-weight: bold;
     }
     a:visited{
-        color:blue;
+        color: #566799;
     }
 }
 .profile_image
 {
-    border:1px solid red;
+    border:0;
 }
 
 .change_image{
-    visibility:visible;
-    position:relative;
-    margin:0px;
-    padding:0px;
-    color:red;
-    text-align:center;
-    cursor:pointer;
+    visibility: visible;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    color: red;
+    text-align: center;
+    cursor: pointer;
 }
 .post_comment_child {
-    width:600px;
-    min-height:60px;
-    margin-bottom:10px;
-    margin-top:10px;
+    width: 600px;
+    min-height: 60px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 .post_comment{
+    font-size: 11px;
+    font-weight:normal;
+    font-family: lucida grande,tahoma,verdana,arial,sans-serif;
+    color: gray;
     display:table-cell;
     border-bottom:1px solid #9AAFCA;
-   float:left;
+    float:left;
+    padding: 1px;
+
+    .comments {
+        height: 40px;
+        display: table;
+        background: #EDEFF4;
+        width: 375px;
+        margin-top: 7px;
+        margin-bottom: 7px;
+
+        .comment-uppertip {
+            background: url('pointUpper.png');background-position: 0 0;
+            background-repeat: no-repeat;
+            display: block;
+            height: 5px;
+            margin-left: 17px;
+            width: 9px; position: relative;
+            top: -5px;
+        }
+        .recieved-comment-box {
+            height:auto;
+            float: left;
+            width: 100%;
+            margin-bottom: 1px;
+            border-bottom: 2px solid #fff;
+            padding-left: 2px;
+            padding-right: 4px;
+            padding-bottom: 4px;
+
+            .recieved-comment-inner1 {
+                height:auto;
+                float: left;
+                margin-bottom: 1px;
+                width: 39px;
+
+                .comment-box-photo {
+                    float:left;
+                    width: 40px;
+                    display: table-cell;
+                    margin-right: 1px;
+                }
+            }
+            .recieved-comment-inner2 {
+                height:auto;
+                float: left;
+                margin-bottom: 1px;
+                padding-left: 4px;
+                padding-right: 4px;
+                padding-bottom: 4px;
+                width: 302px;
+
+                .comment-box-comment {
+                    .comment-paragraph {
+                        vertical-align:top;
+                        margin-top: 0;
+
+                        .name-link {
+                            font-size: 11px;
+                            font-weight: bold;
+                        }
+
+                    }
+                    .comment-body {
+                        color:#4B686C;
+                    }
+                }
+            }
+        }
+
+        .comment-box-photo {
+            float:left;
+            width: 40px;
+            display: table-cell;
+            margin-right: 1px;
+            padding: 4px;
+        }
+        .comment-box-form {
+            float:left;
+            display: table-cell;
+        }
+    }
+
 }
 
 .name_link_post {
@@ -144,11 +230,11 @@ body {
     width: 537px;
     a{
         text-decoration:none;
-        font-weight:normal;
+        font-weight:bold;
         
     }
     a:visited{
-        color:blue;
+        color:#566799;
     }
      span{
         margin-right:10px;

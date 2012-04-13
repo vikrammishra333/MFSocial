@@ -49,7 +49,9 @@ body {
                     border: 0 none;
                     padding: 5px !important;
                     .message-box {
-                        border: 1px solid #9AAFCA;
+                        border-right: 1px solid #9AAFCA;
+                        border-left: 1px solid #9AAFCA;
+                        border-top: 1px solid #9AAFCA;
                         padding: 4px;
                         .wall_post {
                             border: 0;
@@ -59,12 +61,22 @@ body {
                         }
                     }
                     .message-box-action {
-                        background-color: #9AAFCA;
+                        background-color: #F2F2F2;
                         border: 1px solid #9AAFCA;
+                        height: 28px;
+                        padding: 3px;
                         input[type="submit"] {
-                            height: 28px;
-                            background-color: #9AAFCA;
-                            border: 1px solid #CCC;
+                            
+                            float: right;
+                            width: 65px;
+                            background: url('facebookPostButton.png');
+                            background-color: #5B74A8;
+                            background-repeat: no-repeat;
+                            border-color: #29447E #29447E #1A356E;
+                            color: #FFFFFF;
+                            font-weight: bold;
+                            font-size: 12px;
+                            vertical-align: middle;
                         }
                     }
                 }
@@ -78,6 +90,7 @@ body {
 #pagelet_welcome_box{
     height:60px;
     padding:5px;
+    float: left;
 }
 
 .image_name{
@@ -143,5 +156,12 @@ body {
             font-weight:normal;
         }
     }
+.update-status {
+    background-image: url("smallicons.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+}
 }
 

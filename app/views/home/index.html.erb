@@ -20,6 +20,9 @@
     <div id="rightCol">
       <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
     </div>
+    <div id="update_icons">
+      <span class="update-status"><%= link_to 'Update Status','javascript:void(0);' %></span>
+    </div>
     <div id="contentArea">
       <%= render "status_space" %>
       <h2>Recent Activities:</h2>

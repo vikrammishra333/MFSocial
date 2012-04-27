@@ -1,27 +1,23 @@
-<h1>Listing posts</h1>
 
-<table>
-  <tr>
-    <th>Content</th>
-    <th>By user</th>
-    <th>To user</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
+<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
 
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.content %></td>
-    <td><%= post.by_user_id %></td>
-    <td><%= post.to_user_id %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+<div id="calendar">
+  <h2 id="month">
+    <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-01") %>
+    <%= h @date.strftime("%B %Y") %>
+    <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-01") %>
+  </h2>
+  <% calendar_for @posts, :year => @date.year, :month => @date.month do |calendar| %>
+    <%= calendar.head('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday') %>
+    <% calendar.day(:day_method => :created_at) do |date, articles| %>
 
-<br />
-
-<%= link_to 'New Post', new_post_path %>
+      <%= date.day %>
+      <ul>
+      <% for article in articles %>
+        <li><%= link_to h(article.content), article %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  <% end %>
+</div>

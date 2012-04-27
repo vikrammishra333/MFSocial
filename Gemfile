@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'acl9'
 gem 'passenger'
+gem 'table_builder', '0.0.3', :git => 'git://github.com/jchunky/table_builder.git'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -3,11 +3,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-<<<<<<< HEAD
     @date = params[:month] ? Date.parse(params[:month]) : Date.today
-=======
-    
->>>>>>> debadatta
     respond_to do |format|
       format.html{  render :layout => 'public_profile' } # index.html.erb
       format.json { render json: @posts }

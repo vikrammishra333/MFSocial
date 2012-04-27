@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   before_filter :load_js
   
   def index
-    @posts = current_user.recent_posts
+    @posts = Post.order("created_at DESC")
     @post = Post.new
     @comment = Comment.new
     respond_to do |format|

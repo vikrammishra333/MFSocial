@@ -1,0 +1,23 @@
+<% like_user_name = [] %>
+<% likes.each do |like| %>
+  <% if like.user_id == current_user.id %>
+    <%  like_user_name.insert(0, "you") %>
+  <% else %>
+    <% like_user =  "#{like.user.first_name} #{like.user.last_name}" %>
+    <%  like_user_name << like_user %>
+  <% end %>
+<% end  %>
+
+<% if  like_user_name.length > 1 %>
+  you
+  <%  for i in 1..like_user_name.length-1 %>
+    , <%= link_to like_user_name[i], root_url %>
+    <% if i == 2 && like_user_name.length-2 > 0%>
+      and <%= link_to  "#{like_user_name.length-2} others" %>
+      break
+    <% end %>
+  <%  end %>
+<% else %>
+  you
+<% end %>
+ like this.

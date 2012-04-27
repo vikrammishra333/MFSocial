@@ -29,14 +29,14 @@ body {
             min-width: 853px;
             display: table;
             #rightCol{
-                
+                border-left:1px solid black;
                 float: right;
                 padding-right: 0;
                 padding-top:40px;
                 min-height:600px;
                 width: 20%;
                 word-wrap: break-word;
-                height: 95%;
+                height: 98.5%;
                 display: table;
             }
             #contentArea {
@@ -57,7 +57,7 @@ body {
                             border: 0;
                             overflow:hidden;
                             height:auto;
-                            width:485px;
+                           /* width:485px;*/
                         }
                     }
                     .message-box-action {
@@ -104,6 +104,7 @@ body {
     margin-top:10px;
     
     a{
+        color: #566799;
         text-decoration:none;
         font-weight: bold;
     }
@@ -240,6 +241,7 @@ body {
         margin-right:10px;
         a{
             font-weight:normal;
+            color:#566799;
         }
     }
 .update-status {
@@ -250,4 +252,18 @@ body {
     width: 16px;
 }
 }
+.received-comment{
+    border-bottom:1px solid red;
+    margin-bottom:5px;
+}
 
+
+.comment_child{
+    width:450px;
+    word-wrap: break-word;
+    border-bottom:1px solid red;
+    height:auto;
+}
+.comment_name_link{
+    width:390px;
+}

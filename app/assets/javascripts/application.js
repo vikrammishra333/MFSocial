@@ -14,7 +14,15 @@
 //= require jquery_ujs
 
   $(document).ready(function(){
-    $("#post_content").autogrow();
+    $(".text_space").autoGrow();
     jQuery("abbr.timeago").timeago().css('border','0');
 
   });
+function checkSubmit(e)
+{
+   if(e && e.keyCode == 13)
+   {
+      document.forms[0].submit();
+   }
+}
+

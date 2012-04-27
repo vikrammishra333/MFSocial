@@ -41,10 +41,20 @@ class LikesController < ApplicationController
   # POST /likes.json
   def create
     @like = Like.new(params[:like])
-
+    @like_type = []
+    @like_type << params["like_type"]
     respond_to do |format|
       if @like.save
-        format.html { redirect_to @like, notice: 'Like was successfully created.' }
+        if params["like_type"] == "comment"
+          @likes = Like.find_all_by_comment_id(params[:like][:comment_id])
+          @like_type << params[:like][:comment_id].to_s
+        else
+          @likes = Like.find_all_by_post_id(params[:like][:post_id])
+          @like_type << params[:like][:post_id].to_s
+        end
+        
+        #format.html { redirect_to @like, notice: 'Like was successfully created.' }
+        format.js{@like_type}
         format.json { render json: @like, status: :created, location: @like }
       else
         format.html { render action: "new" }

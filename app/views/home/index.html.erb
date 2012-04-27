@@ -4,8 +4,7 @@
       <div id="pagelet_welcome_box">
         <div>
           <div class="image_name">
-            <%= link_to image_tag("profilePhoto/male.jpeg", :class => "profile_image", :alt => "User's image", :size => "40x40"), root_url, :id => "profile_image" %>
-            <div id="change_image_link" class="change_image">Change</div>
+            <%= link_to image_tag("profilePhoto/no-image.gif", :class => "profile_image", :alt => "User's image", :size => "40x40"), root_url, :id => "profile_image" %>
           </div>
           <div class="image_name">
             <div class="name_link">
@@ -20,10 +19,15 @@
     <div id="rightCol">
       <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
     </div>
+    <div id="update_icons">
+      <span class="update-status"><%= link_to 'Update Status','javascript:void(0);' %></span>
+    </div>
     <div id="contentArea">
-      <%= render "status_space" %>
-      <h2>Recent Activities:</h2>
-      <div id="status_div">
+      <div class="status-form-bar" style="border: 1px solid red;">
+        <%= render "status_space" %>
+      </div>
+     
+      <div id="status_div" style="width: 100%; border: 1px solid red; height: auto;">
        <%= render "posts" %>
       </div>
       

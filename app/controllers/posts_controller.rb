@@ -3,7 +3,11 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+<<<<<<< HEAD
     @date = params[:month] ? Date.parse(params[:month]) : Date.today
+=======
+    
+>>>>>>> debadatta
     respond_to do |format|
       format.html{  render :layout => 'public_profile' } # index.html.erb
       format.json { render json: @posts }
@@ -41,13 +45,13 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
-
+    @comment = Comment.new
+    @post.created_at = Time.now.to_formatted_s(:mysql_date_time_format)
+    @post.updated_at = Time.now.to_formatted_s(:mysql_date_time_format)
     respond_to do |format|
       if @post.save
-        
-        #logger.debug @posts
-        #format.html { redirect_to root_url, notice: 'Post was successfully created.' }
-        format.js{ @posts = Post.all }
+        @posts = current_user.recent_posts
+        format.js {}
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }

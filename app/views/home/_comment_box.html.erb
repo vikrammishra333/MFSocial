@@ -1,0 +1,33 @@
+<% @comments = @post.comments %>
+
+<div class="comment-box-inner">
+  <% unless @comments.nil? %>
+  
+  <div class="recieved-comment-box">
+
+    <% @comments.each do |comment| %>
+    <div class="recieved-comment-inner1">
+      <div class="comment-box-photo">
+        <%= link_to image_tag("profilePhoto/no-image.gif", :class => "profile_image", :alt => "User's image", :size => "35x35"), root_url, :id => "profile_image" %>
+      </div>
+    </div>
+    <div class="recieved-comment-inner2" >
+      <div class="comment-box-comment">
+        <span class="comment-paragraph"><%= link_to "#{comment.user.full_name}", root_url, :class=>'name-link' %></span><span class="comment-body"><%=  comment.content%></span>
+      </div>
+      <div class="comment-box-timeago">
+        <span><abbr class="timeago" title="<%= comment.timeago_format %>"></abbr></span>
+        <span><%= link_to 'Like', "javascript:void(0);", :class=>'like-link', :style => '' %></span>
+      </div>
+     </div>    
+    <% end %>
+  </div>
+  <% end %>
+  <div class="comment-box-photo">
+    <%= link_to image_tag("profilePhoto/no-image.gif", :class => "profile_image", :alt => "User's image", :size => "35x35"), root_url, :id => "profile_image" %>
+  </div>
+  <div id="comment-box-form" class="comment-box-form" >
+    <%= render :partial=>'comments/form' %>
+  </div>
+</div>
+<div style="clear:both;"></div>

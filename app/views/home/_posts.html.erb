@@ -1,4 +1,7 @@
-<% @posts.each do |post| %>
+<div class="user-posts-wrapper" style="width: 100%;">
+  <% @posts.each do |post| %>
 
-  <%= render "home/post", :post => post %>
-<% end  %>
+    <%= render "home/post", :post => post %>
+
+  <% end  %>
+</div>

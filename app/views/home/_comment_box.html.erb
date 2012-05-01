@@ -19,12 +19,23 @@
                 <%= comment.content %>
               </div>
               <div>
-                <span><%= link_to "Like",likes_path("like_type" => "comment", :like => {:user_id => "#{current_user.id}", :post_id => "#{comment.post_id}", :comment_id => "#{comment.id}" }), :method => "post", :remote => true %></span>
-                <span><%= link_to "Unlike", root_url, :remote => true %></span>
+                <span>
+                  <% @status = comment.current_user_like? (current_user)  %>
+
+                  <% if @status %>
+                    <%= link_to "Like", likes_path("like_type" => "comment", :like => {:user_id => "#{current_user.id}", :post_id => "#{comment.post_id}", :comment_id => "#{comment.id}" }), :method => "post", :remote => true, :id => "like_comment_#{comment.id}", :class => "like_post_class disable_link" %>
+                    <%= link_to "Unike", destroy_like_likes_path("like_type" => "comment", :like => {:user_id => "#{current_user.id}", :post_id => "#{comment.post_id}", :comment_id => "#{comment.id}" }), :method => "post", :remote => true, :id => "unlike_comment_#{comment.id}", :class => "unlike_post_class" %>
+                  <% else %>
+                    <%= link_to "Like", likes_path("like_type" => "comment", :like => {:user_id => "#{current_user.id}", :post_id => "#{comment.post_id}", :comment_id => "#{comment.id}" }), :method => "post", :remote => true, :id => "like_comment_#{comment.id}", :class => "like_post_class" %>
+                    <%= link_to "Unike", destroy_like_likes_path("like_type" => "comment", :like => {:user_id => "#{current_user.id}", :post_id => "#{comment.post_id}", :comment_id => "#{comment.id}" }), :method => "post", :remote => true, :id => "unlike_comment_#{comment.id}", :class => "unlike_post_class disable_link" %>
+                  <% end %>
+                </span>
                 <span><%= link_to "Comment", root_url, :remote => true %></span>
                 <span><abbr class="timeago" title="<%= comment.timeago_format %>" style="border-style: none;"></abbr></span>
               </div>
-              <div id="comment_like_<%= comment.id %>" class="">You like this</div>
+              <div id="comment_like_<%= comment.id %>" class="post_like">
+                <%= render "likes/users_like", :likes =>  comment.likes  unless comment.likes.length > 0 %>
+              </div>
             </div>
 
           </div>

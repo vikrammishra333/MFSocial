@@ -89,10 +89,10 @@ body {
 
 #comments {
   font-size: 12px;
-  background-color: #DDD;
+  background-color: #EDEFF4;
   padding: 0 20px;
   width: 495px;
-  border: solid 1px #333;
+  border: solid 1px #D2D9E7;
 }
 
 .comment {
@@ -205,3 +205,7 @@ body {
   text-align: center;
 }
 
+.disable_link
+{
+    display:none;
+}

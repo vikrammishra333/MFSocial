@@ -8,5 +8,14 @@ class Post < ActiveRecord::Base
   def timeago_format
     created_at.to_formatted_s(:mysql_date_time_format)
   end
-  
+
+ def current_user_like?(current_user)
+   @status = self.likes.where(:user_id => current_user.id)
+   if @status.blank?
+     false
+   else
+     true
+   end
+ end
+
 end

@@ -145,7 +145,7 @@ body {
         height: 40px;
         display: table;
         background: #EDEFF4;
-        width: 375px;
+        width: 495px;
         margin-top: 7px;
         margin-bottom: 7px;
 
@@ -270,3 +270,14 @@ body {
 .post_like{
     border-bottom:1px solid #D2D9E7;
 }
+
+#change_image_link{
+    z-index:1000;
+    top:0px;
+    position:relative;
+    a{
+        text-decoration:none;
+     }
+
+}
+

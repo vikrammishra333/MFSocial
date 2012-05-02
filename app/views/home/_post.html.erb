@@ -24,11 +24,11 @@
               <%= link_to "Unike", destroy_like_likes_path(:like => {:user_id => "#{current_user.id}", :post_id => "#{post.id}" }), :method => "post", :remote => true, :id => "unlike_post_#{post.id}", :class => "unlike_post_class disable_link" %>
             <% end %>
           </span>
-          <span><%= link_to "Comment", root_url, :remote => true %></span>
+          <span><%= link_to "Comment", root_url, :remote => true, :id => "comment_post_link_#{post.id}", :class => "comment_post_link" %></span>
           <span><%= link_to "Share", root_url, :remote => true %></span>
           <span><abbr class="timeago" title="<%= post.timeago_format %>" style="border-style: none;"></abbr></span>
         </div>
-        <div id="comments" class="comments">
+        <div id="comments_<%= post.id %>" class="comments">
           <div id="post_like_<%= post.id %>" class="post_like">
             <%= render "likes/users_like", :likes =>  post.likes %>
           </div>

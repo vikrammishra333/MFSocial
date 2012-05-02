@@ -30,7 +30,7 @@
                     <%= link_to "Unike", destroy_like_likes_path("like_type" => "comment", :like => {:user_id => "#{current_user.id}", :post_id => "#{comment.post_id}", :comment_id => "#{comment.id}" }), :method => "post", :remote => true, :id => "unlike_comment_#{comment.id}", :class => "unlike_post_class disable_link" %>
                   <% end %>
                 </span>
-                <span><%= link_to "Comment", root_url, :remote => true %></span>
+                
                 <span><abbr class="timeago" title="<%= comment.timeago_format %>" style="border-style: none;"></abbr></span>
               </div>
               <div id="comment_like_<%= comment.id %>" class="post_like">

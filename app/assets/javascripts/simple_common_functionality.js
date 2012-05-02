@@ -37,11 +37,13 @@ $(document).ready(function(){
 
      var showHideCommentPost = function(){
         $('.comment_post_link').live("click", function(e){
-            $(this).parent().parent().next().toggle();
+            var id = $(this).attr("id");
+            var comment_box_id = id.substring(id.lastIndexOf('_')+1);
+            $('#comments_'+comment_box_id).toggle();
         });
      };
 
-
+     
     $('body').bind('ajaxComplete', function() {
 
         updateBindings();
@@ -51,11 +53,13 @@ $(document).ready(function(){
     updateBindings();
 });
 
-function checkSubmit(e)
+function checkSubmit(e,id, current_element)
 {
-   if(e && e.keyCode == 13)
+   if(e && e.keyCode == 13 )
    {
-      document.forms[0].submit();
-   }
+    if( $(current_element).val().trim() != "") {
+      $('#'+id).submit();
+    }
+   } 
 }
 

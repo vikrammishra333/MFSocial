@@ -128,8 +128,7 @@ body {
 .post_comment_child {
     width: 600px;
     min-height: 60px;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 2px;
 }
 .post_comment{
     font-size: 11px;
@@ -137,14 +136,12 @@ body {
     font-family: lucida grande,tahoma,verdana,arial,sans-serif;
     color: gray;
     display:table-cell;
-    border-bottom:1px solid #9AAFCA;
     float:left;
     padding: 1px;
 
     .comments {
         height: 40px;
         display: table;
-        background: #EDEFF4;
         width: 495px;
         margin-top: 7px;
         margin-bottom: 7px;
@@ -175,10 +172,12 @@ body {
                 width: 39px;
 
                 .comment-box-photo {
-                    float:left;
-                    width: 40px;
+                    background: none repeat scroll 0 0 #EDEFF4;
                     display: table-cell;
+                    float: left;
                     margin-right: 1px;
+                    padding: 4px;
+                    width: 40px;
                 }
             }
             .recieved-comment-inner2 {
@@ -209,15 +208,17 @@ body {
         }
 
         .comment-box-photo {
+            background: none repeat scroll 0 0 #EDEFF4;
             float:left;
             width: 40px;
             display: table-cell;
-            margin-right: 1px;
             padding: 4px;
         }
         .comment-box-form {
+            background: none repeat scroll 0 0 #EDEFF4;
             float:left;
             display: table-cell;
+            width:447px;
         }
     }
 
@@ -258,9 +259,10 @@ body {
 
 
 .comment_child{
-    width:450px;
+    width:493px;
     word-wrap: break-word;
     border-bottom:1px solid #D2D9E7;
+    background:#EDEFF4;
     height:auto;
 }
 .comment_name_link{
@@ -268,7 +270,9 @@ body {
 }
 
 .post_like{
-    border-bottom:1px solid #D2D9E7;
+    background: none repeat scroll 0 0 #EDEFF4;
+    border-bottom: 1px solid #D2D9E7;
+    margin-bottom: 2px;
 }
 
 #change_image_link{
@@ -281,3 +285,11 @@ body {
 
 }
 
+.comment_like{
+    border:none;
+}
+
+.new_comment .field{
+    margin-top:4px;
+    margin-bottom:4px;
+}

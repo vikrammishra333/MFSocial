@@ -7,6 +7,8 @@ $(document).ready(function(){
         clickLike();
         clickUnlike();
         showHideCommentPost();
+        showDeleteLink();
+        hideDeleteLink();
      };
 
     var textareaAutoGrow = function() {
@@ -43,6 +45,24 @@ $(document).ready(function(){
         });
      };
 
+     var showDeleteLink = function(){
+        $(".comment-content").live("mouseover", function(e){
+            var id = $(this).attr("id");
+            var comment_id = id.substring(id.lastIndexOf('_')+1);
+            $("#delete_link_"+comment_id).removeClass("inactive-delete-link");
+            $("#delete_link_"+comment_id).addClass("active-delete-link");
+        });
+
+     };
+
+     var hideDeleteLink = function(){
+        $(".comment-content").live("mouseout", function(e){
+            var id = $(this).attr("id");
+            var comment_id = id.substring(id.lastIndexOf('_')+1);
+            $("#delete_link_"+comment_id).removeClass("active-delete-link");
+            $("#delete_link_"+comment_id).addClass("inactive-delete-link");
+        });
+     };
      
     $('body').bind('ajaxComplete', function() {
 

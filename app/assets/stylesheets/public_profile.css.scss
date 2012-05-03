@@ -138,6 +138,7 @@ body {
     display:table-cell;
     float:left;
     padding: 1px;
+    padding-top:5px;
 
     .comments {
         height: 40px;
@@ -292,4 +293,26 @@ body {
 .new_comment .field{
     margin-top:4px;
     margin-bottom:4px;
+}
+
+.close-button{
+    background-image: url("/assets/delete.png");
+    background-repeat: no-repeat;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.image-block
+{
+    float:right;
+}
+.inactive-delete-link {
+    display:none;
+}
+
+.active-delete-link{
+     display: inline-block;
 }

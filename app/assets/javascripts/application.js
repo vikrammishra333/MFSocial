@@ -14,3 +14,10 @@
 //= require jquery_ujs
 
 
+$(document).ready(function(){
+    $(".cancel").live("click", function(e){
+        $.colorbox.close();
+        return false;
+    });
+});
+

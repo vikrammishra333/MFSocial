@@ -4,9 +4,13 @@
       <div id="pagelet_welcome_box">
         <div>
           <div class="image_name">
-            <%= link_to image_tag("profilePhoto/no-image.gif", :class => "profile_image", :id => "profile_image", :alt => "User's image", :size => "60x40"), root_url %>
-            <div id="change_image_link" class="change_image_link" style="cursor: default;">
-              <%= link_to "Change", new_account_photo_path %>
+            <% if current_user.profile_photo_id.blank? %>
+              <%= link_to image_tag("profilePhoto/no-image.gif", :class => "profile_image", :id => "profile_image", :alt => "User's image", :size => "60x40"), root_url %>
+            <% else %>
+              <%= link_to image_tag(current_user.profile_photo.avtar.url(:profile), :class => "profile_image", :id => "profile_image", :alt => "#{current_user.first_name} #{current_user.last_name}'s image"), root_url %>
+            <% end %>
+            <div  class="change_image_link" style="cursor: default;">
+              <%= link_to "Change", new_account_photo_path, :id => "change_image_link" %>
             </div>
           </div>
           <div class="image_name">

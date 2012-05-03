@@ -43,4 +43,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def profile_photo
+    photo_id = self.profile_photo_id
+    @photo = Photo.find(photo_id)
+    return @photo
+  end
+
 end

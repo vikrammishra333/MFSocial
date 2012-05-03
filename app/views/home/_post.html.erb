@@ -2,7 +2,11 @@
 <div class="post_comment">
   <div class="post_comment_child">
     <div class="image_name">
-      <%= link_to image_tag("profilePhoto/no-image.gif", :class => "profile_image", :alt => "User's image", :size => "50x50"), root_url, :id => "profile_image" %>
+      <% if current_user.profile_photo_id.blank? %>
+        <%= link_to image_tag("profilePhoto/no-image.gif", :class => "profile_image", :id => "profile_image", :alt => "User's image", :size => "60x40"), root_url %>
+      <% else %>
+        <%= link_to image_tag(current_user.profile_photo.avtar.url(:comment), :class => "profile_image", :id => "profile_image", :alt => "#{current_user.first_name} #{current_user.last_name}'s image"), root_url %>
+      <% end %>
     </div>
     <div class="image_name">
       <div class="name_link_post">

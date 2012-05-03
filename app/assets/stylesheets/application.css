@@ -13,7 +13,9 @@
 */
 
 
-
+.red{
+    color:red;
+}
 .alert{
     color:red;
     text-align: center;
@@ -24,7 +26,7 @@
    text-align: center;
 }
 
-input[type="submit"]
+input[type="submit"], button
 {
     width:auto;
     padding:3px;

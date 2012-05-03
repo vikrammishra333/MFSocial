@@ -1,4 +1,4 @@
-<%= form_for(@photo, :url=>{}) do |f| %>
+<%= form_for(@photo, :url=>{:controller => "account/photos", :action => "create"}, :multipart => true) do |f| %>
   <% if @photo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this account_photo from being saved:</h2>
@@ -12,18 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :avtar, "Upload a Photo" %><span class="red">*</span><br />
+    <%= f.file_field :avtar %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><span class="red">*</span><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label :description %><span class="red">*</span><br />
+    <%= f.text_area :description, :rows => "2", :cols => "40" %>
   </div>
   <div class="field">
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
+    <%= f.hidden_field :user_id, :value => "#{current_user.id}" %>
   </div>
   <div class="actions">
     <%= f.submit %>
+    <%= button_tag :cancel, :class => "cancel" %>
   </div>
 <% end %>

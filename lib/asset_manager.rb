@@ -82,7 +82,8 @@ class AssetManager
     :jquery_form        => "jquery_form.js",
     :fancybox           => "fancybox/jquery.fancybox-1.3.4.js",
     :fancybox_wheel     => "fancybox/jquery.mousewheel-3.0.4.pack.js",
-    :autogrow           => "autogrow.js"
+    :autogrow           => "autogrow.js",
+    :colorbox           => "colorbox.js"
    
   }
 

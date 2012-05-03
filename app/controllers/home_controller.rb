@@ -24,6 +24,7 @@ class HomeController < ApplicationController
 
   def load_js
     AssetManager.include_local_library [:application, :upload_image, :simple_common_functionality]
+    AssetManager.include_contrib_library [:colorbox]
     AssetManager.include_css [
       :application,
     ]

@@ -1,6 +1,14 @@
 MFSocial::Application.routes.draw do
 
-  resources :likes
+  namespace :account do resources :photos end
+
+  resources :likes do
+    collection do
+      post "destroy_like"
+    end
+  end
+
+
 
   resources :comments
 

@@ -13,8 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 
-  $(document).ready(function(){
-    $("#post_content").autogrow();
-    jQuery("abbr.timeago").timeago().css('border','0');
 
-  });

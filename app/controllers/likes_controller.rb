@@ -1,4 +1,6 @@
 class LikesController < ApplicationController
+  
+  include LikesHelper
   # GET /likes
   # GET /likes.json
   def index
@@ -41,10 +43,20 @@ class LikesController < ApplicationController
   # POST /likes.json
   def create
     @like = Like.new(params[:like])
-
+    @like_type = []
+    @like_type << params["like_type"]
     respond_to do |format|
       if @like.save
-        format.html { redirect_to @like, notice: 'Like was successfully created.' }
+        if params["like_type"] == "comment"
+          @likes = Like.find_all_by_comment_id(params[:like][:comment_id])
+          @like_type << params[:like][:comment_id].to_s
+        else
+          @likes = Like.find_all_by_post_id(params[:like][:post_id])
+          @like_type << params[:like][:post_id].to_s
+        end
+        
+        #format.html { redirect_to @like, notice: 'Like was successfully created.' }
+        format.js{@like_type}
         format.json { render json: @like, status: :created, location: @like }
       else
         format.html { render action: "new" }
@@ -71,12 +83,25 @@ class LikesController < ApplicationController
 
   # DELETE /likes/1
   # DELETE /likes/1.json
-  def destroy
-    @like = Like.find(params[:id])
-    @like.destroy
+  def destroy_like
+    @like_type = []
+    @like_type << params["like_type"]
+    
+    if params["like_type"] == "comment"
+      @like = Like.find_by_user_id_and_comment_id(params[:like][:user_id], params[:like][:comment_id])
+      @like.destroy
+      @like_type << params[:like][:comment_id].to_s
+      @likes = Like.find_all_by_comment_id(params[:like][:comment_id])
+    else
+      @like = Like.find_by_post_id_and_user_id(params[:like][:post_id], params[:like][:user_id])
+      @like.destroy
+      @like_type << params[:like][:post_id].to_s
+      @likes = Like.find_all_by_post_id(params[:like][:post_id])
+    end
 
     respond_to do |format|
-      format.html { redirect_to likes_url }
+      #format.html { redirect_to likes_url }
+      format.js{@like_type}
       format.json { head :no_content }
     end
   end

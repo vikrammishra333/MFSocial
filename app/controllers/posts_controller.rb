@@ -3,9 +3,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-    
+    @date = params[:month] ? Date.parse(params[:month]) : Date.today
     respond_to do |format|
-      format.html # index.html.erb
+      format.html{  render :layout => 'public_profile' } # index.html.erb
       format.json { render json: @posts }
     end
   end

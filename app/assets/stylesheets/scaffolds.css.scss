@@ -16,12 +16,8 @@ pre {
   font-size: 11px; }
 
 a {
-  color: #000;
   &:visited {
-    color: #666; }
-  &:hover {
-    color: #fff;
-    text-decoration:underline; } }
+    color: #666; } }
 
 div {
   &.field, &.actions {

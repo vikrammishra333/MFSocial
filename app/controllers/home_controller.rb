@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   before_filter :load_js
   
   def index
-    @posts = current_user.recent_posts
+    @posts = Post.all
     @post = Post.new
     @comment = Comment.new
     render :layout => 'public_profile' 
@@ -19,7 +19,7 @@ class HomeController < ApplicationController
   private
 
   def load_js
-    AssetManager.include_local_library [:application, :upload_image]
+    AssetManager.include_local_library [:application, :upload_image, :simple_common_functionality]
     AssetManager.include_css [
       :application, :home
     ]

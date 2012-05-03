@@ -1,54 +1,66 @@
-(function($) {
+/*!
+ * ----------------------------------------------------------------------------
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * <jevin9@gmail.com> wrote this file. As long as you retain this notice you
+ * can do whatever you want with this stuff. If we meet some day, and you think
+ * this stuff is worth it, you can buy me a beer in return. Jevin O. Sewaruth
+ * ----------------------------------------------------------------------------
+ *
+ * Autogrow Textarea Plugin Version v2.0
+ * http://www.technoreply.com/autogrow-textarea-plugin-version-2-0
+ *
+ * Date: March 13, 2011
+ */
+jQuery.fn.autoGrow = function(){
+	return this.each(function(){
+		// Variables
+		var colsDefault = this.cols;
+		var rowsDefault = this.rows;
 
-    /*
-     * Auto-growing textareas; technique ripped from Facebook
-     */
-    $.fn.autogrow = function(options) {
+		//Functions
+		var grow = function() {
+			growByRef(this);
+		}
 
-        this.filter('textarea').each(function() {
+		var growByRef = function(obj) {
+			var linesCount = 0;
+			var lines = obj.value.split('\n');
 
-            var $this       = $(this),
-                minHeight   = $this.height(),
-                lineHeight  = $this.css('lineHeight');
+			for (var i=lines.length-1; i>=0; --i)
+			{
+				linesCount += Math.floor((lines[i].length / colsDefault) + 1);
+			}
 
-            var shadow = $('<div></div>').css({
-                position:   'absolute',
-                top:        -10000,
-                left:       -10000,
-                width:      $(this).width() - parseInt($this.css('paddingLeft')) - parseInt($this.css('paddingRight')),
-                fontSize:   $this.css('fontSize'),
-                fontFamily: $this.css('fontFamily'),
-                lineHeight: $this.css('lineHeight'),
-                resize:     'none'
-            }).appendTo(document.body);
+			if (linesCount >= rowsDefault)
+				obj.rows = linesCount + 1;
+			else
+				obj.rows = rowsDefault;
+		}
 
-            var update = function() {
+		var characterWidth = function (obj){
+			var characterWidth = 0;
+			var temp1 = 0;
+			var temp2 = 0;
+			var tempCols = obj.cols;
 
-                var times = function(string, number) {
-                    for (var i = 0, r = ''; i < number; i ++) r += string;
-                    return r;
-                };
+			obj.cols = 1;
+			temp1 = obj.offsetWidth;
+			obj.cols = 2;
+			temp2 = obj.offsetWidth;
+			characterWidth = temp2 - temp1;
+			obj.cols = tempCols;
 
-                var val = this.value.replace(/</g, '&lt;')
-                                    .replace(/>/g, '&gt;')
-                                    .replace(/&/g, '&amp;')
-                                    .replace(/\n$/, '<br/>&nbsp;')
-                                    .replace(/\n/g, '<br/>')
-                                    .replace(/ {2,}/g, function(space) { return times('&nbsp;', space.length -1) + ' ' });
+			return characterWidth;
+		}
 
-                shadow.html(val);
-                $(this).css('height', Math.max(shadow.height() + 20, minHeight));
-
-            }
-
-            $(this).change(update).keyup(update).keydown(update);
-
-            update.apply(this);
-
-        });
-
-        return this;
-
-    }
-
-})(jQuery);
+		// Manipulations
+		this.style.width = "auto";
+		this.style.height = "auto";
+		this.style.overflow = "hidden";
+		this.style.width = ((characterWidth(this) * this.cols) + 6) + "px";
+		this.onkeyup = grow;
+		this.onfocus = grow;
+		this.onblur = grow;
+		growByRef(this);
+	});
+};

@@ -1,0 +1,8 @@
+<%  if @like_type[0] == "comment" %>
+  $("#comment_like_<%=  @like_type[1] %>").html('');
+  $("#comment_like_<%=  @like_type[1] %>").html('<%= escape_javascript( render :partial => "likes/users_like", :locals => {:likes => @likes} ) %>').fadeIn();
+
+<%  else %>
+  $("#post_like_<%=  @like_type[1] %>").html('');
+  $("#post_like_<%=  @like_type[1] %>").html('<%= escape_javascript( render :partial => "likes/users_like", :locals => {:likes => @likes}  ) %>').fadeIn();
+<%  end %>

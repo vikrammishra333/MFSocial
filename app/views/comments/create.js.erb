@@ -1,0 +1,5 @@
+
+$('#comments_<%=  "#{@post.id}" %>').html('');
+$('#comments_<%=  "#{@post.id}" %>').html('<%= escape_javascript( render :partial => "home/comment_box" , :post => @post) %>').fadeIn();
+
+jQuery("abbr.timeago").timeago();

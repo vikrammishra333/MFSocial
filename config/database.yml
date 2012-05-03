@@ -25,7 +25,7 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: MFSocial_test
+  database: MFSocial
   pool: 5
   username: root
   password: mindfire

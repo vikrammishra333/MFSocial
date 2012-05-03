@@ -1,6 +1,6 @@
 # Overrides key methods of the Devise Sessions controller
 class SessionsController < Devise::SessionsController
-  include Devise::Controllers::InternalHelpers
+  #include Devise::Controllers::InternalHelpers
   before_filter :load_js
   def load_js
      AssetManager.include_contrib_library [:fancybox]

@@ -41,3 +41,9 @@ gem 'passenger'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 gem 'paperclip'
+group :development, :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'factory_girl'
+end

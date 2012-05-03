@@ -46,9 +46,7 @@ class PostsController < ApplicationController
     @post.updated_at = Time.now.to_formatted_s(:mysql_date_time_format)
     respond_to do |format|
       if @post.save
-        @posts = current_user.recent_posts
-        format.js {}
-        format.json { render json: @post, status: :created, location: @post }
+        format.js { @recent_posts = current_user.recent_posts }
       else
         format.html { render action: "new" }
         format.json { render json: @post.errors, status: :unprocessable_entity }

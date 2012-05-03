@@ -7,11 +7,7 @@ class HomeController < ApplicationController
     @posts = current_user.recent_posts
     @post = Post.new
     @comment = Comment.new
-    respond_to do |format|
-      format.html {  render :layout => 'public_profile' }#index.html.erb
-      format.json { render json: @posts}
-      format.xml
-    end
+    render :layout => 'public_profile' 
   end
 
   def about_us
@@ -25,7 +21,7 @@ class HomeController < ApplicationController
   def load_js
     AssetManager.include_local_library [:application, :upload_image]
     AssetManager.include_css [
-      :application,
+      :application, :home
     ]
   end
   

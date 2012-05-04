@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  secondary_school: MyString
+  sr_secondary_school: MyString
+  college: MyString
+  university: MyString
+  current_employer: MyString
+  previous_employer: MyString
+
+two:
+  secondary_school: MyString
+  sr_secondary_school: MyString
+  college: MyString
+  university: MyString
+  current_employer: MyString
+  previous_employer: MyString

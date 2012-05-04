@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>About you:</b>
+  <%= @profile.about_you %>
+</p>
+
+<p>
+  <b>Favourite quotation:</b>
+  <%= @profile.favourite_quotation %>
+</p>
+
+<p>
+  <b>Relationship status:</b>
+  <%= @profile.relationship_status %>
+</p>
+
+<p>
+  <b>Inetrested in:</b>
+  <%= @profile.inetrested_in %>
+</p>
+
+<p>
+  <b>Religious views:</b>
+  <%= @profile.religious_views %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

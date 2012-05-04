@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  hometown: MyString
+  home_state: MyString
+  home_country: MyString
+  home_zip: MyString
+  current_town: MyString
+  current_state: MyString
+  current_country: MyString
+  current_zip: MyString
+  mobile_number: MyString
+
+two:
+  hometown: MyString
+  home_state: MyString
+  home_country: MyString
+  home_zip: MyString
+  current_town: MyString
+  current_state: MyString
+  current_country: MyString
+  current_zip: MyString
+  mobile_number: MyString

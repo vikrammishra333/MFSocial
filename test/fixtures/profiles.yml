@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  about_you: MyText
+  favourite_quotation: MyText
+  relationship_status: MyString
+  inetrested_in: MyString
+  religious_views: MyString
+
+two:
+  about_you: MyText
+  favourite_quotation: MyText
+  relationship_status: MyString
+  inetrested_in: MyString
+  religious_views: MyString

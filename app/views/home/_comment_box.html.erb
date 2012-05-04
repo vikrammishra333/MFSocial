@@ -8,10 +8,10 @@
     <% @comments.each do |comment| %>
         <div id="comment_id_<%= comment.id %>" class="post_comment post_comment_child comment_child comment-content">
           <div class="image_name">
-            <% if current_user.profile_photo_id.blank? %>
+            <% if comment.user.profile_photo_id.blank? %>
               <%= link_to image_tag("profilePhoto/no-image.gif", :class => "profile_image", :id => "profile_image", :alt => "User's image", :size => "60x40"), root_url %>
             <% else %>
-              <%= link_to image_tag(current_user.profile_photo.avtar.url(:comment), :class => "profile_image", :id => "profile_image", :alt => "#{current_user.first_name} #{current_user.last_name}'s image"), root_url %>
+              <%= link_to image_tag(comment.user.profile_photo.avtar.url(:comment), :class => "profile_image", :id => "profile_image", :alt => "#{current_user.first_name} #{current_user.last_name}'s image"), root_url %>
             <% end %>
           </div>
           <div class="image_name">
@@ -52,7 +52,7 @@
   <% end %>
   <div class="comment-box-photo">
     <% if current_user.profile_photo_id.blank? %>
-      <%= link_to image_tag("profilePhoto/no-image.gif", :class => "profile_image", :id => "profile_image", :alt => "User's image", :size => "60x40"), root_url %>
+      <%= link_to image_tag("profilePhoto/no-image.gif", :class => "profile_image", :id => "profile_image", :alt => "User's image", :size => "35x35"), root_url %>
     <% else %>
       <%= link_to image_tag(current_user.profile_photo.avtar.url(:new_comment), :class => "profile_image", :id => "profile_image", :alt => "#{current_user.first_name} #{current_user.last_name}'s image"), root_url %>
     <% end %>

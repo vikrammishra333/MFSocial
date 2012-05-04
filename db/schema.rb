@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503090415) do
+ActiveRecord::Schema.define(:version => 20120504054856) do
 
   create_table "account_albums", :force => true do |t|
     t.string   "title"
@@ -28,6 +28,20 @@ ActiveRecord::Schema.define(:version => 20120503090415) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.string   "hometown"
+    t.string   "home_state"
+    t.string   "home_country"
+    t.string   "home_zip"
+    t.string   "current_town"
+    t.string   "current_state"
+    t.string   "current_country"
+    t.string   "current_zip"
+    t.string   "mobile_number"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "likes", :force => true do |t|
@@ -58,6 +72,16 @@ ActiveRecord::Schema.define(:version => 20120503090415) do
     t.integer  "to_user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.text     "about_you"
+    t.text     "favourite_quotation"
+    t.string   "relationship_status"
+    t.string   "inetrested_in"
+    t.string   "religious_views"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "user_connection_requests", :force => true do |t|
@@ -107,5 +131,16 @@ ActiveRecord::Schema.define(:version => 20120503090415) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["profile_photo_id"], :name => "index_users_on_profile_photo_id"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "work_and_educations", :force => true do |t|
+    t.string   "secondary_school"
+    t.string   "sr_secondary_school"
+    t.string   "college"
+    t.string   "university"
+    t.string   "current_employer"
+    t.string   "previous_employer"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
 end

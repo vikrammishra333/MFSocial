@@ -15,9 +15,29 @@
 
 
 $(document).ready(function(){
-    $(".cancel").live("click", function(e){
-        $.colorbox.close();
-        return false;
+
+    var updateBindings = function() {
+        closePopUp();
+        openPopUp();
+    };
+
+    var openPopUp = function(){
+        $("#change_image_link").colorbox({transition:"none"});
+    };
+
+    var closePopUp = function(){
+        $(".cancel").live("click", function(e){
+            $.colorbox.close();
+            return false;
+        });
+    }
+     
+    $('body').bind('ajaxComplete', function() {
+
+        updateBindings();
+
     });
+
+    updateBindings();
 });
 

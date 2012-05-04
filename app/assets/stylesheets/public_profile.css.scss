@@ -214,6 +214,9 @@ body {
             width: 40px;
             display: table-cell;
             padding: 4px;
+            height:41px;
+
+            img{ top:5px; position:relative;}
         }
         .comment-box-form {
             background: none repeat scroll 0 0 #EDEFF4;
@@ -320,3 +323,5 @@ body {
 #upload_photo_div{
     display:none;
 }
+
+.image_name img{ top:5px; position:relative;}

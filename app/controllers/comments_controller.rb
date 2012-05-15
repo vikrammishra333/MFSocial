@@ -41,8 +41,11 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(params[:comment])
-    @comment.created_at = Time.now.to_formatted_s(:mysql_date_time_format)
-    @comment.updated_at = Time.now.to_formatted_s(:mysql_date_time_format)
+#    @comment.created_at = Time.now.to_formatted_s(:mysql_date_time_format)
+#    @comment.updated_at = Time.now.to_formatted_s(:mysql_date_time_format)
+    @comment.created_at = @comment.timeago_format(Time.now)
+    @comment.updated_at = @comment.timeago_format(Time.now)
+
     respond_to do |format|
       if @comment.save
         @post = Post.find_by_id(params[:comment][:post_id])

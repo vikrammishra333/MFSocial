@@ -37,7 +37,7 @@
                   <% end %>
                 </span>
                 
-                <span><abbr class="timeago" title="<%= comment.timeago_format %>" style="border-style: none;"></abbr></span>
+                <span><abbr class="timeago" title="<%= comment.timeago_format(comment.created_at) %>" style="border-style: none;"></abbr></span>
               </div>
               <div id="comment_like_<%= comment.id %>" class="post_like comment_like">
                 <%= render "likes/users_like", :likes =>  comment.likes  unless comment.likes.length > 0 %>

@@ -1,4 +1,8 @@
 class Account::ProfilesController < ApplicationController
+
+  before_filter :authenticate_user!
+  before_filter :load_js
+
   # GET /profiles
   # GET /profiles.json
   def index
@@ -16,7 +20,7 @@ class Account::ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html{  render :layout => 'public_profile' } # show.html.erb
       format.json { render json: @profile }
     end
   end
@@ -44,7 +48,7 @@ class Account::ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
+        format.html {redirect_to root_url, notice: 'Profile was successfully created.' }
         format.json { render json: @profile, status: :created, location: @profile }
       else
         format.html { render action: "new" }
@@ -80,4 +84,15 @@ class Account::ProfilesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+  def load_js
+    AssetManager.include_local_library [:application, :upload_image, :simple_common_functionality]
+    AssetManager.include_contrib_library [:colorbox]
+    AssetManager.include_css [
+      :application,
+    ]
+  end
+
 end

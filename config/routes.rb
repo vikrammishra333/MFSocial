@@ -1,6 +1,6 @@
 MFSocial::Application.routes.draw do
 
-  resources :profiles
+  #resources :profiles
 
   namespace :account do 
     resources :photos

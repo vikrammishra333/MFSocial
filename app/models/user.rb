@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_many :comments, :foreign_key => :user_id
   has_many :likes, :foreign_key => :user_id
 
+  has_one :profile
 
   def recent_posts
     @posts = self.add_posts.where("posts.created_at > ?", self.last_sign_in_at ).order('created_at DESC')

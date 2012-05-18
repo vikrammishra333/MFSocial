@@ -5,9 +5,9 @@
         <div>
           <div class="image_name">
             <% if current_user.profile_photo_id.blank? %>
-              <%= link_to image_tag("profilePhoto/no-image.gif", :class => "profile_image", :id => "profile_image", :alt => "User's image", :size => "60x40"), root_url %>
+              <%= link_to image_tag("profilePhoto/no-image.gif", :class => "profile_image", :id => "profile_image", :alt => "User's image", :size => "60x40"), account_profile_path(current_user.profile) %>
             <% else %>
-              <%= link_to image_tag(current_user.profile_photo.avtar.url(:profile), :class => "profile_image", :id => "profile_image", :alt => "#{current_user.first_name} #{current_user.last_name}'s image"), root_url %>
+              <%= link_to image_tag(current_user.profile_photo.avtar.url(:profile), :class => "profile_image", :id => "profile_image", :alt => "#{current_user.first_name} #{current_user.last_name}'s image"), account_profile_path(current_user.profile) %>
             <% end %>
             <div  class="change_image_link" style="cursor: default;">
               <%= link_to "Change", new_account_photo_path, :id => "change_image_link" %>

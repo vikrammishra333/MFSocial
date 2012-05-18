@@ -1,4 +1,4 @@
-<%= form_for(@profile) do |f| %>
+<%= form_for(@profile, :url=>{:controller => "account/profiles", :action => "create"}) do |f| %>
   <% if @profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
@@ -31,6 +31,7 @@
     <%= f.label :religious_views %><br />
     <%= f.text_field :religious_views %>
   </div>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <div class="actions">
     <%= f.submit %>
   </div>

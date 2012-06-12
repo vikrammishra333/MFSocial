@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+require File.dirname(__FILE__) + '/../config/boot'
+require 'erb'
+require 'yaml'
+
+unless config = YAML::load(ERB.new(IO.read(RAILS_ROOT +
+"/config/database.yml")).result)[RAILS_ENV]
+   abort "No database found for environment '#{RAILS_ENV}'"
+end
+
+db_out_path = File.join(RAILS_ROOT, 'tmp', "dbdump_#{RAILS_ENV}.sql")
+system "mysqldump -u #{config['username']} --password=#{config['password']}
+ #{config['database']} >; #{db_out_path}"
+

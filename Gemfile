@@ -22,6 +22,7 @@ end
 
 gem 'jquery-rails'
 gem 'devise'
+gem "devise_rpx_connectable"
 gem 'acl9'
 gem 'passenger'
 gem 'table_builder', '0.0.3', :git => 'git://github.com/jchunky/table_builder.git'
@@ -42,3 +43,4 @@ gem 'table_builder', '0.0.3', :git => 'git://github.com/jchunky/table_builder.gi
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 gem 'paperclip'
+

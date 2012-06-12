@@ -17,7 +17,7 @@ module MFSocial
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
-    
+
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
@@ -60,3 +60,4 @@ module MFSocial
     config.assets.version = '1.0'
   end
 end
+
